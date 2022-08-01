@@ -5,7 +5,8 @@ using UnityEngine.UI;
 using UnityEngine.Events;
 using System.IO;
 using System;
-using TMPro;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Ling;
 
 public class Main : MonoBehaviour
 {
@@ -25,9 +26,9 @@ public class Main : MonoBehaviour
         Debug.Log(string.Join("," , data));
         text = string.Join(",", data);
     }
-    
+
     public void MakeTXT()
-    { 
+    {
         //Debug.Log(string.Join(",", data));
         //Debug.Log("done");
 
@@ -40,22 +41,24 @@ public class Main : MonoBehaviour
        //Debug.Log("complete");
     }
 
-    public void MakeJSON()
+    //Still working on
+    public void JsonSerialize(object data, string filePath)
     {
+        JsonSerializer jsonSerializer = new JsonSerializer();
+
+    }
+
+    /*public void MakeJSON()
+    {
+
+        var json = JsonSerializer.Serialize(data);
+        File.WriteAllText("file.json", json);
+
         string output = JsonUtility.ToJson(text);
 
-        File.WriteAllTextAsync(Application.dataPath)
-    }
+        Debug.Log(output);
 
-    // get to later
-   /* public void DropDown()
-    {
-        if(myDrop.value == 1)
-        {
-            MakeTXT();
-        }
-        
-
+        File.WriteAllTextAsync("file.txt", output);
     }
-    */
+ */
 }
